@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js');</script>
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B1220" media="(prefers-color-scheme: dark)" />
+
+  <title>MSquare Events — Bar &amp; Bat Mitzvahs, Weddings, Family Celebrations</title>
+  <meta name="description" content="Boutique event production for life's biggest moments — bar &amp; bat mitzvahs, weddings, anniversaries, and family celebrations. Designed and produced end-to-end by Yakira Hoz, SF Bay Area." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MSquare Events — Life's Biggest Moments, Beautifully Produced" />
+  <meta property="og:description" content="Bar &amp; bat mitzvahs, weddings, milestones — produced end-to-end so you can be a guest at your own event." />
+  <meta property="og:image" content="/images/og-image.png" />
+  <meta property="og:url" content="https://m2square.site/events" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="/images/m2square-logo.png" />
+  <link rel="apple-touch-icon" href="/images/m2square-logo.png" />
+
+  <link rel="preload" as="image" href="/images/m2square-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Events-page-specific styles. Designed to layer on top of styles.css tokens. -->
+  <style>
+    /* Soft, warm accent for the events page — pulls a blush/gold feeling from the
+       dashboards we build for clients, while staying inside the MSquare token system. */
+    :root {
+      --events-warm: #C9A86C;       /* gold */
+      --events-warm-deep: #8c7448;
+      --events-blush: #FDF5F5;
+      --events-sage: #9CAF88;
+    }
+
+    /* Hero override — softer, more editorial feel for the events page. */
+    .events-hero {
+      position: relative;
+      padding: clamp(80px, 14vh, 140px) 0 clamp(48px, 8vh, 80px);
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(201,168,108,0.18), transparent 60%),
+        radial-gradient(900px 500px at -10% 30%, rgba(156,175,136,0.18), transparent 60%),
+        var(--color-bg);
+    }
+
+    .events-hero-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+      text-align: center;
+    }
+
+    .events-hero .eyebrow {
+      color: var(--events-warm-deep);
+      padding-left: 0;
+    }
+    .events-hero .eyebrow::before { display: none; }
+
+    .events-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.25rem, 6vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      max-width: 18ch;
+      margin: 0 auto var(--space-6);
+    }
+
+    .events-hero h1 em {
+      font-style: italic;
+      color: var(--events-warm-deep);
+    }
+
+    .events-hero p.lead {
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      line-height: 1.6;
+      color: var(--color-ink-muted);
+      max-width: 56ch;
+      margin: 0 auto var(--space-8);
+    }
+
+    .events-hero .hero-ctas {
+      justify-content: center;
+    }
+
+    /* Subtle floral divider accents, drawn with CSS so they degrade gracefully */
+    .events-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: var(--space-10) auto 0;
+      color: var(--events-warm);
+      max-width: 320px;
+    }
+    .events-divider::before,
+    .events-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.4;
+    }
+    .events-divider span {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    /* Event types grid */
+    .event-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .event-type-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--t-med) var(--ease-out),
+                  box-shadow var(--t-med) var(--ease-out),
+                  border-color var(--t-med) var(--ease-out);
+    }
+
+    .event-type-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--events-warm);
+    }
+
+    .event-type-card .card-img {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--color-surface-alt);
+    }
+    .event-type-card .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 700ms var(--ease-out);
+    }
+    .event-type-card:hover .card-img img {
+      transform: scale(1.04);
+    }
+    .event-type-card .card-body {
+      padding: var(--space-7);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-type-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(201,168,108,0.12);
+      color: var(--events-warm-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: var(--space-5);
+    }
+
+    .event-type-card h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: var(--space-3);
+    }
+
+    .event-type-card p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--color-ink-muted);
+      margin: 0;
+    }
+
+    /* Approach — 3 steps */
+    .events-approach {
+      background: var(--color-surface-alt);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-7);
+      margin-top: var(--space-8);
+      counter-reset: step;
+    }
+
+    .approach-step {
+      background: var(--color-surface);
+      border-radius: var(--radius-3);
+      padding: var(--space-7);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .approach-step-num {
+      counter-increment: step;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--events-warm-deep);
+      margin-bottom: var(--space-3);
+    }
+    .approach-step-num::before {
+      content: 'Step ' counter(step) ' — ';
+    }
+
+    .approach-step h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .approach-step p {
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* About — brief, image + body */
+    .events-about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--space-10);
+      align-items: center;
+      margin-top: var(--space-8);
+    }
+
+    .events-about-portrait img {
+      width: 100%;
+      border-radius: var(--radius-4);
+      box-shadow: var(--shadow-md);
+    }
+
+    .events-about-body p { font-size: 1rem; line-height: 1.7; }
+
+    .events-about-body .quote {
+      margin-top: var(--space-6);
+      padding-left: var(--space-5);
+      border-left: 3px solid var(--events-warm);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: var(--color-ink);
+      font-style: italic;
+    }
+
+    @media (max-width: 760px) {
+      .events-about-layout { grid-template-columns: 1fr; gap: var(--space-7); }
+    }
+
+    /* Final CTA band */
+    .events-cta {
+      background: linear-gradient(135deg, #f9f3e8 0%, #f3e9d6 100%);
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .events-cta { background: linear-gradient(135deg, #1a2235 0%, #232c44 100%); }
+    }
+
+    .events-cta h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      max-width: 22ch;
+      margin: 0 auto var(--space-5);
+    }
+
+    .events-cta p {
+      max-width: 50ch;
+      margin: 0 auto var(--space-7);
+      color: var(--color-ink-muted);
+    }
+
+    .events-cta .events-cta-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      justify-content: center;
+    }
+
+    .events-cta .events-contact-line {
+      margin-top: var(--space-7);
+      font-size: 0.9rem;
+      color: var(--color-ink-subtle);
+    }
+    .events-cta .events-contact-line a {
+      color: var(--events-warm-deep);
+      font-weight: 500;
+    }
+
+    /* "From a recent event" callout — links back to a live dashboard if you want */
+    .recent-event {
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-3);
+      padding: var(--space-7);
+      max-width: 720px;
+      margin: var(--space-8) auto 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+
+    .recent-event .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(156,175,136,0.18);
+      color: #5a7248;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+    }
+
+    .recent-event h4 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin: 0 0 4px;
+    }
+
+    .recent-event p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--color-ink-muted);
+    }
+
+    @media (max-width: 480px) {
+      .recent-event { grid-template-columns: 1fr; text-align: center; }
+      .recent-event .icon { margin: 0 auto; }
+    }
+
+    /* ============ Gallery ============ */
+    .events-gallery-section {
+      background: var(--color-bg);
+    }
+
+    .gallery-grid {
+      margin-top: var(--space-8);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 120px;
+      gap: var(--space-3);
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-3);
+      background: var(--color-surface-alt);
+      cursor: zoom-in;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 800ms var(--ease-out), filter 400ms var(--ease-out);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item::after {
+      content: attr(data-caption);
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 16px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.6) 100%);
+      opacity: 0;
+      transition: opacity 250ms var(--ease-out);
+      pointer-events: none;
+    }
+    .gallery-item:hover::after,
+    .gallery-item:focus-visible::after {
+      opacity: 1;
+    }
+
+    /* Asymmetric 12-col grid spans for editorial feel */
+    .gallery-item[data-span="wide"]   { grid-column: span 6; grid-row: span 3; }
+    .gallery-item[data-span="tall"]   { grid-column: span 4; grid-row: span 4; }
+    .gallery-item[data-span="square"] { grid-column: span 4; grid-row: span 3; }
+    .gallery-item[data-span="small"]  { grid-column: span 3; grid-row: span 2; }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 100px;
+      }
+      .gallery-item[data-span="wide"]   { grid-column: span 6; grid-row: span 3; }
+      .gallery-item[data-span="tall"]   { grid-column: span 3; grid-row: span 4; }
+      .gallery-item[data-span="square"] { grid-column: span 3; grid-row: span 3; }
+      .gallery-item[data-span="small"]  { grid-column: span 3; grid-row: span 2; }
+    }
+    @media (max-width: 520px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+      }
+      .gallery-item,
+      .gallery-item[data-span] { grid-column: 1 / -1; grid-row: span 1; }
+    }
+
+    /* ============ Lightbox ============ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 220ms var(--ease-out);
+    }
+    .lightbox[data-open="true"] {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 86vh;
+      border-radius: var(--radius-3);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      backdrop-filter: blur(10px);
+      transition: background 200ms var(--ease-out);
+    }
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(255,255,255,0.18);
+    }
+    .lightbox-close { top: 24px; right: 24px; }
+    .lightbox-prev  { top: 50%; left: 24px; transform: translateY(-50%); }
+    .lightbox-next  { top: 50%; right: 24px; transform: translateY(-50%); }
+  </style>
+
+  <!-- JSON-LD: Service schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Event Production",
+    "provider": {
+      "@type": "Organization",
+      "name": "MSquare",
+      "url": "https://m2square.site/"
+    },
+    "areaServed": ["US"],
+    "audience": "Families, couples, and hosts of milestone events",
+    "description": "Boutique event production for bar & bat mitzvahs, weddings, milestone birthdays, and family celebrations."
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-header" data-state="top">
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="nav-logo" aria-label="MSquare home">
+        <img src="/images/m2square-logo.png" alt="" width="28" height="28" class="nav-logo-img" aria-hidden="true" />
+        <span class="nav-wordmark">MSquare</span>
+      </a>
+
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="#event-types">Events</a></li>
+        <li><a href="#approach">How it works</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About Yakira</a></li>
+        <li><a href="/#services">Startups</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary nav-cta" data-magnetic>
+        Plan your event
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
+    <ul class="mobile-nav-links">
+      <li><a href="#event-types">Events</a></li>
+      <li><a href="#approach">How it works</a></li>
+      <li><a href="#about">About Yakira</a></li>
+      <li><a href="/#services">Startups</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary btn-large mobile-nav-cta">Plan your event</a>
+    <a href="mailto:yakirahoz@gmail.com" class="mobile-nav-email">yakirahoz@gmail.com</a>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="events-hero" aria-labelledby="events-hero-title">
+      <div class="events-hero-inner">
+        <p class="eyebrow">EVENT PRODUCTION FOR LIFE'S DEFINING MOMENTS</p>
+
+        <h1 id="events-hero-title">
+          The day you'll remember.<br>
+          <em>We make sure it runs.</em>
+        </h1>
+
+        <p class="lead">
+          Bar &amp; bat mitzvahs, weddings, milestone birthdays, and family celebrations —
+          designed and produced end-to-end so you can be a guest at your own event.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary btn-large" data-magnetic>
+            Tell us about your event
+          </a>
+          <a href="#event-types" class="btn btn-ghost btn-large">See what we do</a>
+        </div>
+
+        <div class="events-divider" aria-hidden="true">
+          <span>✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVENT TYPES ============ -->
+    <section id="event-types" class="section" aria-labelledby="event-types-title">
+      <div class="container">
+        <p class="eyebrow">01 — WHAT WE PRODUCE</p>
+        <h2 id="event-types-title" class="section-title display">
+          Built for milestones, not menus.
+        </h2>
+        <p style="max-width:54ch; color:var(--color-ink-muted); line-height:1.6;">
+          We're not a venue, a caterer, or a DJ. We're the producer who hires them,
+          briefs them, and makes sure they all show up doing the right thing on the
+          right day.
+        </p>
+
+        <div class="event-types">
+          <article class="event-type-card">
+            <div class="card-img">
+              <img src="/images/gallery/mitzvah-tablescape-blue.jpg"
+                   alt="Long bar mitzvah dinner table with blue and yellow florals, blue runner, and gold flatware"
+                   loading="lazy" width="800" height="500" />
+            </div>
+            <div class="card-body">
+              <h3>Bar &amp; Bat Mitzvahs</h3>
+              <p>
+                From the Havdalah candle to the grand entrance to the after-party — every
+                tradition honored, every kid on the dance floor, every parent breathing.
+                Bilingual production (English &amp; Hebrew).
+              </p>
+            </div>
+          </article>
+
+          <article class="event-type-card">
+            <div class="card-img">
+              <img src="/images/gallery/wedding-ceremony-arch.jpg"
+                   alt="Backyard wedding ceremony with floral arch and chairs lined with baby's breath"
+                   loading="lazy" width="800" height="500" />
+            </div>
+            <div class="card-body">
+              <h3>Weddings</h3>
+              <p>
+                Multi-day, multi-cultural, or just intimate and beautiful. We handle
+                vendor curation, ceremony flow, and reception logistics so you actually
+                get to be present.
+              </p>
+            </div>
+          </article>
+
+          <article class="event-type-card">
+            <div class="card-img">
+              <img src="/images/gallery/private-dinner-florals.jpg"
+                   alt="Private dinner setup with white florals and stacked plates on a long wooden table"
+                   loading="lazy" width="800" height="500" />
+            </div>
+            <div class="card-body">
+              <h3>Milestone Birthdays &amp; Anniversaries</h3>
+              <p>
+                50ths, 60ths, big anniversaries, vow renewals. Designed to feel personal
+                first, polished second.
+              </p>
+            </div>
+          </article>
+
+          <article class="event-type-card">
+            <div class="card-img">
+              <img src="/images/gallery/private-photo-cubes.jpg"
+                   alt="Family photo cubes and a small white birdcage on a wood table with yellow flowers"
+                   loading="lazy" width="800" height="500" />
+            </div>
+            <div class="card-body">
+              <h3>Family &amp; Lifecycle Celebrations</h3>
+              <p>
+                Brises, baby namings, retirement parties, end-of-life remembrances. The
+                moments that matter, treated with the care they deserve.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Recent event proof -->
+        <div class="recent-event">
+          <div class="icon" aria-hidden="true">🪑</div>
+          <div>
+            <h4>From a recent event</h4>
+            <p>
+              For Ellie's bat mitzvah we built a private guest dashboard — seating
+              lookup by name, the menu, and the timeline — accessible by QR code from
+              every table. <em>That's the level of production we bring.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPROACH ============ -->
+    <section id="approach" class="section events-approach" aria-labelledby="events-approach-title">
+      <div class="container">
+        <p class="eyebrow">02 — HOW IT WORKS</p>
+        <h2 id="events-approach-title" class="section-title display">
+          Embedded with you, from vision to last guest out.
+        </h2>
+
+        <div class="approach-grid">
+          <article class="approach-step">
+            <p class="approach-step-num">Vision</p>
+            <h3>What do you want guests to feel?</h3>
+            <p>
+              Before we touch logistics, we figure out the heart of the event — the
+              moments that have to land, the family stories that have to show up, the
+              feeling at midnight.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <p class="approach-step-num">Design &amp; Plan</p>
+            <h3>Every vendor, every minute, documented.</h3>
+            <p>
+              Vendor curation, venue layout, run-of-show, dietary tracking, transport,
+              signage. Every decision lives in a private dashboard you can check anytime.
+            </p>
+          </article>
+
+          <article class="approach-step">
+            <p class="approach-step-num">The Day</p>
+            <h3>First in, last out — so you can be present.</h3>
+            <p>
+              We're on-site from vendor load-in to teardown. Senior operator running the
+              floor. Your only job that day is to show up and be in it.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="section events-gallery-section" aria-labelledby="events-gallery-title">
+      <div class="container">
+        <p class="eyebrow">03 — RECENT WORK</p>
+        <h2 id="events-gallery-title" class="section-title display">
+          A few moments we made happen.
+        </h2>
+        <p style="max-width:54ch; color:var(--color-ink-muted); line-height:1.6;">
+          Tablescapes, ceremonies, dance floors, dessert moments, late-night second
+          courses — every detail considered, every vendor in sync.
+        </p>
+
+        <div class="gallery-grid" role="list">
+          <button class="gallery-item" role="listitem" data-span="wide" data-caption="Backyard wedding ceremony" type="button">
+            <img src="/images/gallery/wedding-ceremony-arch.jpg"
+                 alt="Backyard wedding ceremony with a floral arch and rows of cross-back chairs decorated with baby's breath"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="tall" data-caption="Bar mitzvah dinner — blues &amp; yellows" type="button">
+            <img src="/images/gallery/mitzvah-tablescape-blue.jpg"
+                 alt="Bar mitzvah dinner tablescape with blue and yellow florals, blue chargers, and gold flatware"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Personalized blessing card" type="button">
+            <img src="/images/gallery/mitzvah-blessing-card.jpg"
+                 alt="Custom Hebrew and English bar mitzvah blessing card on a blue plate with two forks"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Outdoor wedding tablescape" type="button">
+            <img src="/images/gallery/wedding-tablescape-blue.jpg"
+                 alt="Long outdoor table set with blue, yellow, and white florals and sage chiffon runner"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Cocktails &amp; string lights" type="button">
+            <img src="/images/gallery/corporate-cocktail-evening.jpg"
+                 alt="Outdoor evening cocktail event with string lights, wood tables, and white floral arrangements"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="tall" data-caption="Kids on the dance floor" type="button">
+            <img src="/images/gallery/mitzvah-dance-floor.jpg"
+                 alt="Children playing with a soccer ball on a mirrored dance floor at a bat mitzvah"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Bar mitzvah dinner setup" type="button">
+            <img src="/images/gallery/mitzvah-dinner-wide.jpg"
+                 alt="Wide view of long bar mitzvah dinner tables with blue and white florals and white folding chairs"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Personal photo cubes" type="button">
+            <img src="/images/gallery/private-photo-cubes.jpg"
+                 alt="Family photo cubes and a small white birdcage on a wood table with yellow flowers"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Backyard dinner setup" type="button">
+            <img src="/images/gallery/private-dinner-florals.jpg"
+                 alt="Private dinner setup with white florals and stacked plates on a long wooden table"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Chef-led dinner party" type="button">
+            <img src="/images/gallery/private-chef-dinner.jpg"
+                 alt="Indoor dinner party with chefs working in an open kitchen and a buffet of family-style dishes"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Cocktail station detail" type="button">
+            <img src="/images/gallery/private-cocktail-station.jpg"
+                 alt="Crystal cocktail station with dried roses, daisies, and a metal shaker mid-pour"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="gallery-item" role="listitem" data-span="square" data-caption="Yakira at the table" type="button">
+            <img src="/images/gallery/yakira-setup.jpg"
+                 alt="Yakira lighting candles at an outdoor dinner setup with yellow florals"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about" aria-labelledby="events-about-title">
+      <div class="container">
+        <p class="eyebrow">04 — WHO YOU'LL WORK WITH</p>
+        <h2 id="events-about-title" class="section-title display">Meet Yakira.</h2>
+
+        <div class="events-about-layout">
+          <div class="events-about-portrait">
+            <img
+              src="/images/gallery/yakira-portrait.jpg"
+              alt="Yakira smiling while setting an outdoor dinner table at dusk"
+              loading="lazy"
+              width="1600" height="1067"
+            />
+          </div>
+
+          <div class="events-about-body">
+            <p>
+              Yakira Hoz has spent a decade producing events — from 200-person corporate
+              offsites to intimate family celebrations. She works at the intersection of
+              logistics and human connection: the unglamorous middle that makes the rest
+              possible.
+            </p>
+            <p>
+              Based in the SF Bay Area and bilingual (English &amp; Hebrew), she partners
+              with families across the U.S. and Israel on the events that matter most.
+              Every engagement is led by Yakira herself — there is no junior bench, and
+              there are no hand-offs.
+            </p>
+
+            <p class="quote">
+              "I treat your event like it's my own family's — because for those weeks, it is."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Lightbox (gallery) ============ -->
+    <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="lightbox-close" type="button" aria-label="Close preview">×</button>
+      <button class="lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <button class="lightbox-next" type="button" aria-label="Next image">›</button>
+      <img alt="" />
+      <div class="lightbox-caption" aria-live="polite"></div>
+    </div>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section id="contact" class="section events-cta" aria-labelledby="events-cta-title">
+      <div class="container">
+        <h2 id="events-cta-title">
+          Tell us what you're planning.
+        </h2>
+        <p>
+          Bar/bat mitzvah, wedding, milestone — start with a free 20-minute call to
+          talk vision, dates, and budget. No pressure, no proposal-bait.
+        </p>
+
+        <div class="events-cta-actions">
+          <a href="mailto:yakirahoz@gmail.com?subject=Event%20inquiry" class="btn btn-primary btn-large" data-magnetic>
+            Email Yakira
+          </a>
+          <a href="tel:+19173990618" class="btn btn-ghost btn-large">+1 917-399-0618</a>
+        </div>
+
+        <p class="events-contact-line">
+          Or write directly: <a href="mailto:yakirahoz@gmail.com">yakirahoz@gmail.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col footer-brand">
+        <a href="/" class="footer-logo">
+          <img src="/images/m2square-logo.png" alt="" width="28" height="28" aria-hidden="true" />
+          <span>MSquare</span>
+        </a>
+        <p class="footer-tag">Events that feel personal. Operations that feel in-house.</p>
+        <p class="footer-meta">© <span id="year">2026</span> MSquare. Made with care in the Bay Area.</p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">Events</p>
+        <ul class="footer-links">
+          <li><a href="#event-types">What we produce</a></li>
+          <li><a href="#approach">How it works</a></li>
+          <li><a href="#about">About Yakira</a></li>
+          <li><a href="#contact">Plan your event</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">Get in touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:yakirahoz@gmail.com">yakirahoz@gmail.com</a></li>
+          <li><a href="tel:+19173990618">+1 917-399-0618</a></li>
+          <li><a href="/">MSquare for startups →</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

@@ -13,3 +13,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Source photos (full-resolution originals); only the resized copies in
+# images/gallery/ are committed.
+Website pics/

@@ -1,183 +1,876 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MSquare | Transforming Operations & Events for Startups</title>
-  <meta name="description" content="Expert operations and event services for startups. From leadership retreats to office setup, we deliver high-impact solutions without the full-time overhead.">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js');</script>
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B1220" media="(prefers-color-scheme: dark)" />
+
+  <title>MSquare — Operations & Events for Startups | SF Bay Area + Israel</title>
+  <meta name="description" content="Fractional operations and event production for startups in the U.S. and Israel — without the full-time overhead. Boutique operations consultancy led by Yakira Hoz, based in the SF Bay Area." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MSquare — Operations & Events for Startups" />
+  <meta property="og:description" content="Fractional operations and event production for startups in the U.S. and Israel — without the full-time overhead." />
+  <meta property="og:image" content="/images/og-image.png" />
+  <meta property="og:url" content="https://m2square.site/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MSquare — Operations & Events for Startups" />
+  <meta name="twitter:description" content="Fractional operations and event production for startups in the U.S. and Israel — without the full-time overhead." />
+  <meta name="twitter:image" content="/images/og-image.png" />
+
+  <!-- TODO: replace with real favicon files once produced -->
+  <link rel="icon" type="image/png" href="/images/m2square-logo.png" />
+  <link rel="apple-touch-icon" href="/images/m2square-logo.png" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="images/m2square-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MSquare",
+    "alternateName": "M2 Square",
+    "url": "https://m2square.site/",
+    "logo": "https://m2square.site/images/m2square-logo.png",
+    "founder": { "@type": "Person", "name": "Yakira Hoz" },
+    "email": "yakirahoz@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "CA",
+      "addressLocality": "San Francisco Bay Area",
+      "addressCountry": "US"
+    },
+    "areaServed": ["US", "IL"],
+    "serviceType": [
+      "Fractional Operations",
+      "Event Production",
+      "Culture & Employee Experience",
+      "U.S. Office Setup",
+      "Swag & Gifting"
+    ],
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-<a href="#home" class="nav-logo">
-  <img src="images/m2square-logo.png" alt="MSquare Logo" class="nav-logo-img">
-  <span>Square</span>
-</a>      <ul class="nav-links">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-header" data-state="top">
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" class="nav-logo" aria-label="MSquare home">
+        <img src="images/m2square-logo.png" alt="" width="28" height="28" class="nav-logo-img" aria-hidden="true" />
+        <span class="nav-wordmark">MSquare</span>
+      </a>
+
+      <ul class="nav-links" id="primary-nav">
         <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#why-us">Why Us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
+      <a href="#contact" class="btn btn-primary nav-cta" data-magnetic>
+        Book a 20-min intro
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div
+    class="mobile-nav"
+    id="mobile-nav"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Site navigation"
+    hidden
+  >
+    <ul class="mobile-nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary btn-large mobile-nav-cta">Book a 20-min intro</a>
+    <a href="mailto:yakirahoz@gmail.com" class="mobile-nav-email">yakirahoz@gmail.com</a>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob"></div>
+        <div class="hero-dots" data-parallax></div>
+      </div>
+
+      <div class="hero-inner">
+        <p class="eyebrow hero-eyebrow" data-anim="hero-eyebrow">
+          OPERATIONS · EVENTS · CULTURE — FOR STARTUPS
+        </p>
+
+        <h1 id="hero-title" class="hero-title display" data-anim="hero-title">
+          <span class="hero-line">Startups move fast.</span>
+          <span class="hero-line">We make sure</span>
+          <span class="hero-line">nothing
+            <span class="hero-emph">
+              breaks
+              <svg class="hero-underline" viewBox="0 0 200 14" fill="none" aria-hidden="true">
+                <path
+                  d="M3 9 C 40 2, 80 2, 110 7 S 180 12, 197 5"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>.
+          </span>
+        </h1>
+
+        <p class="hero-sub" data-anim="hero-sub">
+          Fractional operations and event production for startups in the U.S. and Israel —
+          without the full-time overhead. Yakira and team have planned 200+ offsites,
+          opened U.S. offices for Israeli companies, and shipped 10,000+ swag boxes since 2019.
+        </p>
+
+        <div class="hero-ctas" data-anim="hero-ctas">
+          <a href="#contact" class="btn btn-primary btn-large" data-magnetic>
+            Book a 20-min intro
+          </a>
+          <a href="#services" class="btn btn-ghost btn-large">See what we do</a>
+        </div>
+      </div>
+
+      <!-- Marquee logo strip -->
+      <div class="marquee" aria-label="Past clients">
+        <div class="marquee-track">
+          <!-- Placeholder while real client logos are pending -->
+          <span class="marquee-item">Logos coming soon — ask about our client list</span>
+          <span class="marquee-item">Logos coming soon — ask about our client list</span>
+          <span class="marquee-item">Logos coming soon — ask about our client list</span>
+          <span class="marquee-item">Logos coming soon — ask about our client list</span>
+          <span class="marquee-item">Logos coming soon — ask about our client list</span>
+          <span class="marquee-item">Logos coming soon — ask about our client list</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust" aria-label="By the numbers">
+      <div class="container">
+        <ul class="trust-grid">
+          <li class="trust-card">
+            <span class="trust-number" data-count="200" data-suffix="+">0</span>
+            <span class="trust-label">Events produced</span>
+          </li>
+          <li class="trust-card">
+            <span class="trust-number" data-count="12" data-suffix="">0</span>
+            <span class="trust-label">U.S. offices opened</span>
+          </li>
+          <li class="trust-card">
+            <span class="trust-number" data-count="8" data-prefix="$" data-suffix="M+">0</span>
+            <span class="trust-label">In vendor budget managed</span>
+          </li>
+          <li class="trust-card">
+            <span class="trust-number" data-count="10" data-suffix="+">0</span>
+            <span class="trust-label">Years experience</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="section services" aria-labelledby="services-title">
+      <div class="container">
+        <p class="eyebrow" data-anim="eyebrow">01 — WHAT WE DO</p>
+        <h2 id="services-title" class="section-title display">
+          Five practices, one operating partner.
+        </h2>
+
+        <div class="services-layout">
+          <!-- Tabs (desktop) / Accordion (mobile) -->
+          <ol class="services-tabs" role="tablist" aria-label="Services">
+            <li>
+              <button
+                class="service-tab is-active"
+                role="tab"
+                aria-selected="true"
+                aria-controls="svc-panel-1"
+                id="svc-tab-1"
+                data-tab="1"
+              >
+                <span class="service-num">01</span>
+                <span class="service-name">Operational Support</span>
+              </button>
+              <div class="service-accordion" id="svc-acc-1" data-panel="1">
+                <p class="service-desc">
+                  Fractional ops leadership for teams that need senior judgment without a senior headcount.
+                </p>
+                <ul class="service-bullets">
+                  <li>Pay-per-project or fractional ops support</li>
+                  <li>Budgeting, vendor management, timeline tracking</li>
+                  <li>Cross-functional partnership with HR, marketing, and leadership</li>
+                  <li>U.S. ops support for Israeli startups expanding globally</li>
+                  <li>Light HR &amp; people-ops coverage</li>
+                </ul>
+                <p class="service-example">
+                  <span class="service-example-label">Recent work</span>
+                  Stood up a U.S. ops function for a Series-A Israeli SaaS team in 6 weeks.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="service-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="svc-panel-2"
+                id="svc-tab-2"
+                data-tab="2"
+              >
+                <span class="service-num">02</span>
+                <span class="service-name">Culture &amp; Employee Experience</span>
+              </button>
+              <div class="service-accordion" id="svc-acc-2" data-panel="2" hidden>
+                <p class="service-desc">
+                  The moments that make a team feel like a team — designed and run end-to-end.
+                </p>
+                <ul class="service-bullets">
+                  <li>Birthdays, work anniversaries, and new-hire welcomes</li>
+                  <li>Mental-health and wellness activations</li>
+                  <li>Internal branding, decor, and surprise-and-delight moments</li>
+                  <li>In-office experiences that reconnect hybrid teams</li>
+                </ul>
+                <p class="service-example">
+                  <span class="service-example-label">Recent work</span>
+                  Built a year-long EX calendar for a 60-person hybrid team across SF and Tel Aviv.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="service-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="svc-panel-3"
+                id="svc-tab-3"
+                data-tab="3"
+              >
+                <span class="service-num">03</span>
+                <span class="service-name">Event &amp; Experience Design</span>
+              </button>
+              <div class="service-accordion" id="svc-acc-3" data-panel="3" hidden>
+                <p class="service-desc">
+                  Internal and external events produced from concept to teardown — on time, on budget.
+                </p>
+                <ul class="service-bullets">
+                  <li>Sales kickoffs, QBRs, leadership offsites</li>
+                  <li>Team retreats, holiday parties, in-office activations</li>
+                  <li>Customer dinners, investor gatherings, networking events</li>
+                  <li>Conferences and booth setup, U.S.-side</li>
+                  <li>Holiday-in-a-box kits and milestone gifting programs</li>
+                </ul>
+                <p class="service-example">
+                  <span class="service-example-label">Recent work</span>
+                  Delivered a 3-day leadership offsite in Sonoma for a 40-person exec team.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="service-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="svc-panel-4"
+                id="svc-tab-4"
+                data-tab="4"
+              >
+                <span class="service-num">04</span>
+                <span class="service-name">U.S. Office Setup</span>
+              </button>
+              <div class="service-accordion" id="svc-acc-4" data-panel="4" hidden>
+                <p class="service-desc">
+                  Find it, build it, run it. U.S. office launches for Israeli companies, end-to-end.
+                </p>
+                <ul class="service-bullets">
+                  <li>Site selection, lease negotiation support, design</li>
+                  <li>Vendor sourcing and ongoing relationship management</li>
+                  <li>Day-to-day office operations: supplies, services, maintenance</li>
+                  <li>Micro-kitchen and stocking programs</li>
+                  <li>Space optimization and layout planning</li>
+                </ul>
+                <p class="service-example">
+                  <span class="service-example-label">Recent work</span>
+                  Built U.S. HQ in San Mateo for an Israeli SaaS company in 6 weeks.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="service-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="svc-panel-5"
+                id="svc-tab-5"
+                data-tab="5"
+              >
+                <span class="service-num">05</span>
+                <span class="service-name">Swag &amp; Gifting</span>
+              </button>
+              <div class="service-accordion" id="svc-acc-5" data-panel="5" hidden>
+                <p class="service-desc">
+                  Considered, on-brand swag programs — sourced, kitted, and shipped from the U.S.
+                </p>
+                <ul class="service-bullets">
+                  <li>Onboarding kits and company-branded apparel</li>
+                  <li>Recognition gifts and care packages</li>
+                  <li>Seasonal and cultural gifting campaigns</li>
+                  <li>Personalized holiday packages for teams, clients, and partners</li>
+                  <li>Milestone packages</li>
+                  <li>U.S.-based purchasing and shipping logistics</li>
+                </ul>
+                <p class="service-example">
+                  <span class="service-example-label">Recent work</span>
+                  Shipped 1,200 onboarding kits across 14 states for a Series-B launch.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <!-- Desktop right-panel -->
+          <div class="services-panels" aria-live="polite">
+            <article
+              class="service-panel is-active"
+              role="tabpanel"
+              id="svc-panel-1"
+              aria-labelledby="svc-tab-1"
+              data-panel="1"
+            >
+              <p class="service-desc">
+                Fractional ops leadership for teams that need senior judgment without a senior headcount.
+              </p>
+              <ul class="service-bullets">
+                <li>Pay-per-project or fractional ops support</li>
+                <li>Budgeting, vendor management, timeline tracking</li>
+                <li>Cross-functional partnership with HR, marketing, and leadership</li>
+                <li>U.S. ops support for Israeli startups expanding globally</li>
+                <li>Light HR &amp; people-ops coverage</li>
+              </ul>
+              <p class="service-example">
+                <span class="service-example-label">Recent work</span>
+                Stood up a U.S. ops function for a Series-A Israeli SaaS team in 6 weeks.
+              </p>
+            </article>
+
+            <article
+              class="service-panel"
+              role="tabpanel"
+              id="svc-panel-2"
+              aria-labelledby="svc-tab-2"
+              data-panel="2"
+              hidden
+            >
+              <p class="service-desc">
+                The moments that make a team feel like a team — designed and run end-to-end.
+              </p>
+              <ul class="service-bullets">
+                <li>Birthdays, work anniversaries, and new-hire welcomes</li>
+                <li>Mental-health and wellness activations</li>
+                <li>Internal branding, decor, and surprise-and-delight moments</li>
+                <li>In-office experiences that reconnect hybrid teams</li>
+              </ul>
+              <p class="service-example">
+                <span class="service-example-label">Recent work</span>
+                Built a year-long EX calendar for a 60-person hybrid team across SF and Tel Aviv.
+              </p>
+            </article>
+
+            <article
+              class="service-panel"
+              role="tabpanel"
+              id="svc-panel-3"
+              aria-labelledby="svc-tab-3"
+              data-panel="3"
+              hidden
+            >
+              <p class="service-desc">
+                Internal and external events produced from concept to teardown — on time, on budget.
+              </p>
+              <ul class="service-bullets">
+                <li>Sales kickoffs, QBRs, leadership offsites</li>
+                <li>Team retreats, holiday parties, in-office activations</li>
+                <li>Customer dinners, investor gatherings, networking events</li>
+                <li>Conferences and booth setup, U.S.-side</li>
+                <li>Holiday-in-a-box kits and milestone gifting programs</li>
+              </ul>
+              <p class="service-example">
+                <span class="service-example-label">Recent work</span>
+                Delivered a 3-day leadership offsite in Sonoma for a 40-person exec team.
+              </p>
+            </article>
+
+            <article
+              class="service-panel"
+              role="tabpanel"
+              id="svc-panel-4"
+              aria-labelledby="svc-tab-4"
+              data-panel="4"
+              hidden
+            >
+              <p class="service-desc">
+                Find it, build it, run it. U.S. office launches for Israeli companies, end-to-end.
+              </p>
+              <ul class="service-bullets">
+                <li>Site selection, lease negotiation support, design</li>
+                <li>Vendor sourcing and ongoing relationship management</li>
+                <li>Day-to-day office operations: supplies, services, maintenance</li>
+                <li>Micro-kitchen and stocking programs</li>
+                <li>Space optimization and layout planning</li>
+              </ul>
+              <p class="service-example">
+                <span class="service-example-label">Recent work</span>
+                Built U.S. HQ in San Mateo for an Israeli SaaS company in 6 weeks.
+              </p>
+            </article>
+
+            <article
+              class="service-panel"
+              role="tabpanel"
+              id="svc-panel-5"
+              aria-labelledby="svc-tab-5"
+              data-panel="5"
+              hidden
+            >
+              <p class="service-desc">
+                Considered, on-brand swag programs — sourced, kitted, and shipped from the U.S.
+              </p>
+              <ul class="service-bullets">
+                <li>Onboarding kits and company-branded apparel</li>
+                <li>Recognition gifts and care packages</li>
+                <li>Seasonal and cultural gifting campaigns</li>
+                <li>Personalized holiday packages for teams, clients, and partners</li>
+                <li>Milestone packages</li>
+                <li>U.S.-based purchasing and shipping logistics</li>
+              </ul>
+              <p class="service-example">
+                <span class="service-example-label">Recent work</span>
+                Shipped 1,200 onboarding kits across 14 states for a Series-B launch.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPROACH ============ -->
+    <section id="approach" class="section approach" aria-labelledby="approach-title">
+      <div class="container">
+        <p class="eyebrow" data-anim="eyebrow">02 — HOW WE WORK</p>
+        <h2 id="approach-title" class="section-title display">Embedded, not outsourced.</h2>
+
+        <div class="timeline" data-timeline>
+          <svg class="timeline-line" viewBox="0 0 1000 6" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 0 3 L 1000 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+
+          <ol class="timeline-steps">
+            <li class="timeline-step" data-step="1">
+              <div class="timeline-card">
+                <div class="timeline-icon" aria-hidden="true">
+                  <!-- Lucide: search -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </div>
+                <p class="timeline-step-num">Step 1</p>
+                <h3 class="timeline-title">Discover</h3>
+                <p class="timeline-body">
+                  A 30-minute intro call. We pin down scope, timeline, and pricing before
+                  anyone signs anything. No fishing expeditions.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-step" data-step="2">
+              <div class="timeline-card">
+                <div class="timeline-icon" aria-hidden="true">
+                  <!-- Lucide: users -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <p class="timeline-step-num">Step 2</p>
+                <h3 class="timeline-title">Embed</h3>
+                <p class="timeline-body">
+                  Shared Slack channel, weekly standups, your tools. Treat us like internal
+                  team — because for those weeks, we are.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline-step" data-step="3">
+              <div class="timeline-card">
+                <div class="timeline-icon" aria-hidden="true">
+                  <!-- Lucide: clipboard-check -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+                </div>
+                <p class="timeline-step-num">Step 3</p>
+                <h3 class="timeline-title">Deliver</h3>
+                <p class="timeline-body">
+                  You get the receipts: budget reconciled, vendor list, retro doc. Hand-off
+                  is documented so your team can run with it.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="container">
+        <p class="eyebrow" data-anim="eyebrow">03 — WHO YOU'LL WORK WITH</p>
+        <h2 id="about-title" class="section-title display">Meet Yakira.</h2>
+
+        <div class="about-layout">
+          <div class="about-portrait">
+            <figure class="portrait-frame" data-portrait>
+              <img
+                src="images/gallery/yakira-portrait.jpg"
+                alt="Yakira smiling while setting an outdoor dinner table at dusk"
+                loading="lazy"
+                width="1600"
+                height="1067"
+              />
+            </figure>
+          </div>
+
+          <div class="about-body">
+            <p>
+              Yakira Hoz has spent a decade running operations and producing events for
+              fast-moving teams. She works at the intersection of logistics, collaboration,
+              and human connection — the unglamorous middle that makes the rest possible.
+            </p>
+            <p>
+              Based in the San Francisco Bay Area, she partners with U.S. and Israeli
+              startups: building U.S. footprints, designing offsites that people actually
+              talk about, and standing up the operating cadence a growing team needs.
+            </p>
+            <p>
+              MSquare is small on purpose. Every engagement is led by a senior operator —
+              there is no junior bench, and there are no hand-offs.
+            </p>
+
+            <blockquote class="pull-quote">
+              <p>
+                "I treat your offsite like it's my own company's — because for those weeks, it is."
+              </p>
+              <cite>— Yakira Hoz, Founder</cite>
+            </blockquote>
+
+            <p class="about-clients-label">Past employers &amp; clients</p>
+            <p class="about-clients">
+              <!-- TODO: replace with real logo lockup once approved -->
+              Client list available on request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY US ============ -->
+    <section id="why-us" class="section why-us" aria-labelledby="why-title">
+      <div class="container">
+        <p class="eyebrow" data-anim="eyebrow">04 — WHY MSQUARE</p>
+        <h2 id="why-title" class="section-title display">
+          What you get with us that you don't get from a vendor.
+        </h2>
+
+        <ul class="why-grid">
+          <li class="why-tile">
+            <span class="why-icon" aria-hidden="true">
+              <!-- Lucide: globe-2 -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"/><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"/><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <h3 class="why-title">Bay Area boots on the ground</h3>
+            <p class="why-body">Walk the office. Meet the vendor. Sign for the delivery. Local where local matters.</p>
+          </li>
+
+          <li class="why-tile">
+            <span class="why-icon" aria-hidden="true">
+              <!-- Lucide: laptop -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+            </span>
+            <h3 class="why-title">US–Israel time-zone fluent</h3>
+            <p class="why-body">We work the morning with Tel Aviv and the afternoon with San Francisco. No lost days.</p>
+          </li>
+
+          <li class="why-tile">
+            <span class="why-icon" aria-hidden="true">
+              <!-- Lucide: badge-dollar-sign -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+            </span>
+            <h3 class="why-title">Pay only for what you ship</h3>
+            <p class="why-body">No retainer trap. Project-based or fractional engagements priced to the scope you actually need.</p>
+          </li>
+
+          <li class="why-tile">
+            <span class="why-icon" aria-hidden="true">
+              <!-- Lucide: clock-9 -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 7.5 12"/></svg>
+            </span>
+            <h3 class="why-title">Senior operator on every engagement</h3>
+            <p class="why-body">No hand-off to juniors. The person you scope with is the person who runs the work.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ RECENT WORK ============ -->
+    <section id="work" class="section work" aria-labelledby="work-title">
+      <div class="container">
+        <p class="eyebrow" data-anim="eyebrow">05 — RECENT WORK</p>
+        <h2 id="work-title" class="section-title display">A few rooms we've made hum.</h2>
+        <p style="max-width:60ch; color:var(--color-ink-muted); line-height:1.6;">
+          Sales kickoffs, founder dinners, leadership offsites, U.S. office openings,
+          and the swag boxes that show up the day before the new hire does.
+        </p>
+
+        <div class="work-gallery" role="list">
+          <button class="work-tile" role="listitem" data-span="wide" data-caption="Founders Village — VC + founders mixer" type="button">
+            <img src="/images/gallery/corporate-cocktails-bar.jpg"
+                 alt="Cocktail menu sign reading 'Cocktails' in front of branded VC coasters and rows of wine glasses"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="tall" data-caption="Coastal sunset offsite" type="button">
+            <img src="/images/gallery/offsite-sunset-pool.jpg"
+                 alt="Team mixer at sunset around a pool with papel picado strung across, ocean view in the background"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Branded sponsor table" type="button">
+            <img src="/images/gallery/corporate-sponsor-table.jpg"
+                 alt="Round table with custom navy table topper printed with sponsor logos AWS, SVB, TCV, Norwest"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Sunflower farm-to-table dinner" type="button">
+            <img src="/images/gallery/offsite-sunflower-dinner.jpg"
+                 alt="Long farm dinner table set with sunflowers, gold flatware, and string lights overhead"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Outdoor cocktail evening" type="button">
+            <img src="/images/gallery/corporate-cocktail-evening.jpg"
+                 alt="Outdoor evening cocktail event with string lights and white floral arrangements on wood tables"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Grazing table" type="button">
+            <img src="/images/gallery/corporate-grazing-table.jpg"
+                 alt="Generous grazing table with cheeses, charcuterie, fruit, breads, and dips"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Branded centerpiece" type="button">
+            <img src="/images/gallery/corporate-yellow-bouquet.jpg"
+                 alt="Yellow rose centerpiece in a mason jar with branded SMS and Catalyst stir-stick stakes by a pool"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="tall" data-caption="Wellness offsite — outdoor yoga" type="button">
+            <img src="/images/gallery/offsite-yoga.jpg"
+                 alt="Team doing a yoga class on green grass at an outdoor offsite"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Late-night fire pit" type="button">
+            <img src="/images/gallery/offsite-firepit-night.jpg"
+                 alt="Team gathered around a fire pit at night under string lights"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Branded swag — House of Aligned" type="button">
+            <img src="/images/gallery/offsite-branded-smores.jpg"
+                 alt="Rows of clear-bagged s'mores kits with House of Aligned branded tags"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Marina team offsite" type="button">
+            <img src="/images/gallery/offsite-team-marina.jpg"
+                 alt="Team in matching shirts posing in front of a marina full of sailboats"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+          <button class="work-tile" role="listitem" data-span="square" data-caption="Office holiday activation — Databook" type="button">
+            <img src="/images/gallery/office-halloween-arch.jpg"
+                 alt="Halloween balloon arch in orange, purple, green, and black framing a Databook logo wall"
+                 loading="lazy" width="1600" height="1067" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Lightbox (shared) ============ -->
+    <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="lightbox-close" type="button" aria-label="Close preview">×</button>
+      <button class="lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <button class="lightbox-next" type="button" aria-label="Next image">›</button>
+      <img alt="" />
+      <div class="lightbox-caption" aria-live="polite"></div>
     </div>
-  </nav>
 
-  <div class="container">
-    <header id="home">
-      <h1>MSquare</h1>
-      <div class="tagline">Startups move fast. We move smarter.</div>
-      <div class="subline">Flexible, expert-level operations services without the full-time overhead</div>
-    </header>
-    
-    <section id="services">
-      <div class="section-content">
-        <h2>Services We Offer</h2>
-        <p class="lead-text">Whether you need a one-time fix or ongoing support, we deliver high-impact operations services that feel in-house—even if we're not.</p>
-        
-        <div class="services-grid">
-          <div class="service-category">
-            <h3>⚙️ Operational Support</h3>
-            <ul class="service-list">
-              <li>Pay-per-project or fractional operations support</li>
-              <li>Budgeting, vendor management, timeline tracking</li>
-              <li>Cross-functional collaboration with HR, marketing, and leadership</li>
-              <li>U.S. ops support for Israeli startups expanding globally</li>
-              <li>Light HR & people ops support</li>
-            </ul>
-          </div>
+    <!-- ============ TESTIMONIALS ============ -->
+    <section id="testimonials" class="section testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <p class="eyebrow" data-anim="eyebrow">06 — WORDS FROM OPERATORS</p>
+        <h2 id="testimonials-title" class="section-title display">
+          What partners say.
+        </h2>
 
-          <div class="service-category">
-            <h3>💛 Culture & Employee Experience</h3>
-            <ul class="service-list">
-              <li>Birthday, work anniversary, and new hire celebrations</li>
-              <li>Mental health and wellness activations</li>
-              <li>Internal branding, decor, and meaningful "surprise & delight" moments</li>
-              <li>In-office experiences that make hybrid teams feel connected</li>
-            </ul>
-          </div>
-
-          <div class="service-category">
-            <h3>🎉 Event & Experience Design</h3>
-            <h4>Internal Events</h4>
-            <ul class="service-list">
-              <li>Sales Kickoffs, Quarterly Business Reviews</li>
-              <li>Team offsites, retreats, happy hours and holidays</li>
-              <li>Leadership retreats, SKOs, and QBRs</li>
-              <li>Holiday parties, in-office activations</li>
-              <li>Kits and gifting programs - "Holiday in a box", work anniversaries</li>
-              <li>End-to-end event planning—from concept to cleanup</li>
-            </ul>
-            
-            <h4>External Events</h4>
-            <ul class="service-list">
-              <li>Business meetings & investor gatherings</li>
-              <li>Customer dinners & networking events</li>
-              <li>U.S. representation for Israel-based startups</li>
-              <li>Conferences and booth setup</li>
-            </ul>
-          </div>
-
-          <div class="service-category">
-            <h3>🏢 Office Setup & Space Management</h3>
-            <ul class="service-list">
-              <li>Finding, designing, and setting up your U.S. office</li>
-              <li>Vendor sourcing and relationship management</li>
-              <li>Ongoing office operations (supplies, services, maintenance)</li>
-              <li>Micro kitchen support</li>
-              <li>Space optimization and layout planning</li>
-            </ul>
-          </div>
-
-          <div class="service-category">
-            <h3>🎁 Swag & Gifting</h3>
-            <ul class="service-list">
-              <li>Onboarding kits and company-branded swag</li>
-              <li>Employee recognition gifts and care packages</li>
-              <li>Seasonal or cultural gifting campaigns</li>
-              <li>Holiday gifting: personalized packages for teams, clients, and partners</li>
-              <li>Milestone packages</li>
-              <li>U.S.-based purchasing & shipping</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="testimonial-grid">
+          <li class="testimonial-card">
+            <blockquote>
+              <p>"Quote pending — we'll add real ones with permission."</p>
+            </blockquote>
+            <p class="testimonial-meta">Founder, Israeli SaaS startup</p>
+          </li>
+          <li class="testimonial-card">
+            <blockquote>
+              <p>"Quote pending — we'll add real ones with permission."</p>
+            </blockquote>
+            <p class="testimonial-meta">Chief of Staff, growth-stage startup</p>
+          </li>
+          <li class="testimonial-card">
+            <blockquote>
+              <p>"Quote pending — we'll add real ones with permission."</p>
+            </blockquote>
+            <p class="testimonial-meta">COO, U.S. expansion team</p>
+          </li>
+        </ul>
       </div>
     </section>
 
-<section id="about">
-  <div class="about-bg-image">
-    <img src="images/yakira-event-setup.jpg" alt="" class="about-background">
-  </div>
-  <div class="about-overlay"></div>
-  <div class="about-content">
-    <h2>About Us</h2>
-    <p class="lead-text">Behind every unforgettable holiday party, high-stakes QBR, or perfectly executed offsite is someone who knows how to turn logistics into impact.</p>
-    
-    <div class="about-grid">
-      <div class="about-card yakira-profile">
-        <h3>👋 Meet Yakira</h3>
-        <p>With a strong foundation in event operations and people operations, I specialize in building systems that support seamless execution—from internal team gatherings and leadership offsites to client-facing activations and milestone celebrations.</p>
-        
-        <p>Based in the San Francisco Bay Area, I bring over a decade of hands-on experience working with fast-moving teams and scaling companies. I thrive in roles that sit at the intersection of logistics, collaboration, and human connection.</p>
-        
-        <p>My background includes leading operations and event strategy for startups and tech companies, where I've built programs from the ground up, streamlined workflows, and supported people-first initiatives across multiple departments.</p>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <h2 id="contact-title" class="section-title display">
+            Tell us what you're planning.
+          </h2>
+          <p class="contact-sub">
+            Offsite, office build-out, ongoing ops support — start with a 20-minute call.
+          </p>
+
+          <div class="contact-alt">
+            <a href="mailto:yakirahoz@gmail.com" class="contact-email">
+              <span class="contact-email-icon" aria-hidden="true">
+                <!-- Lucide: mail -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              yakirahoz@gmail.com
+            </a>
+            <!-- TODO: add Calendly URL -->
+            <a href="#" class="btn btn-ghost-light btn-small contact-calendly" data-todo="calendly">
+              Or grab a 20-min slot
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required />
+            <p class="field-error" role="alert" data-for="cf-name"></p>
+          </div>
+
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required />
+            <p class="field-error" role="alert" data-for="cf-email"></p>
+          </div>
+
+          <div class="field">
+            <label for="cf-message">What do you need?</label>
+            <textarea id="cf-message" name="message" rows="2" required></textarea>
+            <p class="field-error" role="alert" data-for="cf-message"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large form-submit">
+            Send it
+          </button>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
-      
-      <div class="about-card company-profile">
-        <h3>🚀 Who We Are</h3>
-        <p>We specialize in providing flexible, expert-level operations services for startups without the overhead of a full-time hire.</p>
-        
-        <p>Whether your team is based in California or Israel, we're here to bridge time zones, needs, and gaps—efficiently.</p>
-        
-        <p>With over two decades of experience in global operations, event production, and culture-building, we help companies create moments that truly matter—on time, on budget, and always with heart.</p>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col footer-brand">
+        <a href="#home" class="footer-logo">
+          <img src="images/m2square-logo.png" alt="" width="28" height="28" aria-hidden="true" />
+          <span>MSquare</span>
+        </a>
+        <p class="footer-tag">Operations that feel in-house, even if we're not.</p>
+        <p class="footer-meta">© <span id="year">2026</span> MSquare. Made with care in the Bay Area.</p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">Get in touch</p>
+        <ul class="footer-links">
+          <li>
+            <a href="mailto:yakirahoz@gmail.com">yakirahoz@gmail.com</a>
+          </li>
+          <li>
+            <a href="#" data-todo="linkedin" aria-label="LinkedIn (link pending)">
+              <span class="footer-social-icon" aria-hidden="true">
+                <!-- Lucide: linkedin -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </span>
+              LinkedIn
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-    <section id="why-us">
-      <h2>Why Choose MSquare</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <span class="feature-icon">🌎</span>
-          <h3>California-Based</h3>
-          <p>Fluent in startup culture and Silicon Valley dynamics</p>
-        </div>
-        
-        <div class="feature-item">
-          <span class="feature-icon">🏠</span>
-          <h3>Hybrid & Remote Expert</h3>
-          <p>Deep experience with distributed teams and modern work styles</p>
-        </div>
-        
-        <div class="feature-item">
-          <span class="feature-icon">💰</span>
-          <h3>Flexible Pricing</h3>
-          <p>Pay only for what you need - no full-time overhead</p>
-        </div>
-        
-        <div class="feature-item">
-          <span class="feature-icon">🕐</span>
-          <h3>Global Support</h3>
-          <p>Seamless support across time zones, especially US-Israel operations</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="contact-section">
-        <h2>Ready to Get Started?</h2>
-        <p>Whether you're planning your next leadership offsite, setting up a U.S. office, or need ongoing operational support, we're here to help make it happen seamlessly.</p>
-        <a href="mailto:yakirahoz@gmail.com" class="email-link">yakirahoz@gmail.com</a>
-        <p style="margin-top: 30px; font-size: 1.1em;">Let's turn your vision into impact—without the hassle.</p>
-      </div>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 MSquare. All rights reserved.</p>
-      <p>Transforming operations and events for startups across California, Israel, and beyond.</p>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
