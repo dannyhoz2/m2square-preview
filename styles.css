@@ -169,15 +169,28 @@ button {
 
 .skip-link {
   position: absolute;
-  top: -40px;
   left: 12px;
+  top: 12px;
   background: var(--color-ink);
   color: var(--color-bg);
   padding: 8px 12px;
   border-radius: var(--radius-2);
   z-index: 9999;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
-.skip-link:focus { top: 12px; }
+.skip-link:focus {
+  clip: auto;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  white-space: normal;
+}
 
 /* Typography utilities */
 .display { font-family: var(--font-display); font-weight: 400; line-height: 1.1; }
@@ -272,7 +285,8 @@ button {
   letter-spacing: -0.01em;
 }
 .nav-logo:hover { color: var(--color-ink); opacity: 0.85; }
-.nav-logo-img { height: 28px; width: auto; }
+.nav-logo-img { height: 28px; width: auto; filter: brightness(0); }
+.footer-logo img { filter: brightness(0); }
 
 .nav-links {
   display: flex;
@@ -1324,3 +1338,39 @@ button {
 .lightbox-close { top: 24px; right: 24px; }
 .lightbox-prev  { top: 50%; left: 24px; transform: translateY(-50%); }
 .lightbox-next  { top: 50%; right: 24px; transform: translateY(-50%); }
+
+/* ---------- Events contact list (plain links) ---------- */
+.events-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0 0;
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--fs-125);
+}
+.events-contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  justify-content: center;
+}
+.events-contact-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-87);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+  min-width: 4.5rem;
+  text-align: right;
+}
+.events-contact-list a {
+  color: var(--color-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.events-contact-list a:hover {
+  text-decoration-thickness: 2px;
+}
