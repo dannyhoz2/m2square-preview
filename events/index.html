@@ -270,42 +270,7 @@
       .events-about-layout { grid-template-columns: 1fr; gap: var(--space-7); }
     }
 
-    /* Final CTA band */
-    .events-cta {
-      background: linear-gradient(135deg, #f9f3e8 0%, #f3e9d6 100%);
-      text-align: center;
-    }
-
-    .events-cta h2 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      max-width: 22ch;
-      margin: 0 auto var(--space-5);
-    }
-
-    .events-cta p {
-      max-width: 50ch;
-      margin: 0 auto var(--space-7);
-      color: var(--color-ink-muted);
-    }
-
-    .events-cta .events-cta-actions {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: var(--space-4);
-      justify-content: center;
-    }
-
-    .events-cta .events-contact-line {
-      margin-top: var(--space-7);
-      font-size: 0.9rem;
-      color: var(--color-ink-subtle);
-    }
-    .events-cta .events-contact-line a {
-      color: var(--events-warm-deep);
-      font-weight: 500;
-    }
+    /* Final CTA band styles now live in styles.css under .contact-band */
 
     /* "From a recent event" callout — links back to a live dashboard if you want */
     .recent-event {
@@ -662,13 +627,14 @@
 
         <!-- Recent event proof -->
         <div class="recent-event">
-          <div class="icon" aria-hidden="true">🪑</div>
+          <div class="icon" aria-hidden="true">📱</div>
           <div>
             <h4>From a recent event</h4>
             <p>
-              For Ellie's bat mitzvah we built a private guest dashboard — seating
-              lookup by name, the menu, and the timeline — accessible by QR code from
-              every table. <em>That's the level of production we bring.</em>
+              For Ellie's bat mitzvah we built a custom guest mobile app — every guest
+              scanned a QR code at their table to find their seat, browse the menu,
+              follow the timeline, and share photos in real time. <em>That's the
+              level of production we bring.</em>
             </p>
           </div>
         </div>
@@ -840,23 +806,24 @@
     </div>
 
     <!-- ============ FINAL CTA ============ -->
-    <section id="contact" class="section events-cta" aria-labelledby="events-cta-title">
+    <section id="contact" class="section contact-band" aria-labelledby="events-cta-title">
       <div class="container">
         <h2 id="events-cta-title">
           Tell us what you're planning.
         </h2>
         <p>
-          Bar/bat mitzvah, wedding, milestone — start with a free 20-minute call to
-          talk vision, dates, and budget. No pressure, no proposal-bait.
+          Bar/bat mitzvah, wedding, milestone — we'd love to hear what you're
+          dreaming up and help bring it to life. Hop on a free 20-minute call to
+          share your vision, dates, and budget.
         </p>
 
-        <ul class="events-contact-list">
+        <ul class="contact-list">
           <li>
-            <span class="events-contact-label">Email</span>
+            <span class="contact-label">Email</span>
             <a href="mailto:yakirahoz@gmail.com?subject=Event%20inquiry">yakirahoz@gmail.com</a>
           </li>
           <li>
-            <span class="events-contact-label">Phone</span>
+            <span class="contact-label">Phone</span>
             <a href="tel:+19173990618">+1 917-399-0618</a>
           </li>
         </ul>
