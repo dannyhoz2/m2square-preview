@@ -1238,16 +1238,16 @@ button {
 .contact-list {
   list-style: none;
   padding: 0;
-  margin: var(--space-6) 0 0;
-  display: inline-flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  margin: var(--space-6) auto 0;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: var(--space-4);
+  row-gap: var(--space-3);
+  align-items: baseline;
+  width: max-content;
 }
 .contact-list li {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-4);
-  justify-content: center;
+  display: contents;
 }
 .contact-label {
   font-family: var(--font-mono);
@@ -1255,8 +1255,7 @@ button {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-ink-subtle);
-  min-width: 4.5rem;
-  text-align: right;
+  justify-self: end;
 }
 .contact-list a {
   font-family: var(--font-sans);
