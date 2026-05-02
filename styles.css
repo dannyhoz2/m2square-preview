@@ -1048,17 +1048,11 @@ button {
 
   /* Mobile accordion mode */
   .service-accordion {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows var(--t-med) var(--ease-out);
-    overflow: hidden;
-  }
-  .service-accordion > * { min-height: 0; }
-  .services-tabs > li.is-open .service-accordion {
-    grid-template-rows: 1fr;
+    display: block;
+    padding-top: var(--space-4);
     padding-bottom: var(--space-6);
   }
-  .service-accordion[hidden] { display: grid; }
+  .service-accordion[hidden] { display: none; }
 
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .timeline-line { display: none; }
