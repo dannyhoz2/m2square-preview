@@ -654,8 +654,10 @@ button {
   transition: color var(--t-fast) var(--ease-out);
   position: relative;
 }
-.service-tab:hover { color: var(--color-ink); }
-.service-tab.is-active { color: var(--color-ink); }
+.service-tab:hover,
+.service-tab:hover .service-name,
+.service-tab.is-active,
+.service-tab.is-active .service-name { color: var(--color-brand); }
 .service-tab.is-active::before {
   content: '';
   position: absolute;
